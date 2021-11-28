@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- Base Define -->
+    <definition name="base.definition"
+                template="/WEB-INF/views/layouts/mainlayout.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/basefragments/_header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/basefragments/_menu.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/basefragments/_footer.jsp"/>
+    </definition>
+
+    <!-- Inner Define -->
+    <definition name="inner.definition"
+                template="/WEB-INF/views/layouts/innercontent.jsp">
+        <!--<put-attribute name="content" value="/WEB-INF/views/bodyfragments/browse_heterostructure.jsp"/>-->
+    </definition>
+
+    <!-- Browse Heterostructures Page -->
+    <definition name="browseHeterostructure" extends="base.definition">
+        <put-attribute name="title" value="title.heterostructures"/>
+        <put-attribute name="pageTitle" value="title.heterostructures"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyfragments/browse_heterostructure.jsp"/>
+    </definition>
+
+    <!-- View Heterostructur Page -->
+    <definition name="viewHeterostructure" extends="base.definition">
+        <put-attribute name="title" value="title.view"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyfragments/view_heterostructure.jsp"/>
+    </definition>
+
+    <!-- Create or Edit Heterostructure Page -->
+    <definition name="editHeterostructure" extends="base.definition">
+        <put-attribute name="title" value="title.edit"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyfragments/edit_heterostructure.jsp"/>
+    </definition>
+
+    <!-- Exception Page -->
+    <definition name="exceptionMessage" extends="base.definition">
+        <put-attribute name="title" value="title.error"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyfragments/exception.jsp"/>
+    </definition>
+
+    <!-- Login Page -->
+    <definition name="login" extends="base.definition">
+        <put-attribute name="title" value="title.login"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyfragments/login.jsp"/>
+    </definition>
+
+    <!-- Settings Page -->
+    <definition name="settings" extends="base.definition">
+        <put-attribute name="title" value="title.settings"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyfragments/settings.jsp"/>
+    </definition>
+
+    <!-- Registration Page -->
+    <definition name="registration" extends="base.definition">
+        <put-attribute name="title" value="title.registration"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyfragments/registration.jsp"/>
+    </definition>
+
+    <!-- About Page -->
+    <definition name="about" extends="base.definition">
+        <put-attribute name="title" value="title.about"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyfragments/about.jsp"/>
+    </definition>
+
+</tiles-definitions>

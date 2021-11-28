@@ -1,0 +1,63 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    border: 0px solid #000000;
+    border-radius: 5px;
+}
+
+.password-form {
+    padding-right: 5em;
+    padding-left: 5em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 1em;
+    width: 50em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    background-color: #d2dfea;
+}
+
+h2, input {
+    margin: 10px;
+}
+
+.social-button-git {
+    width: 15em;
+    padding: 0.5em;
+    margin: 1em;
+    float: left;
+    font-size: 1em;
+    border: 1px solid #2f3337;
+    border-radius: 5px;
+    background: #2f3337;
+}
+
+.social-button-git:hover {
+    background: #17191B;
+}
+
+.social-button-google {
+    width: 15em;
+    padding: 0.5em;
+    margin: 1em;
+    float: left;
+    font-size: 1em;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background: #ffffff;
+}
+
+.social-button-google:hover {
+    background: #fafafa;
+}
+
+.social-button-icon {
+    padding-right: 0.5em;
+    vertical-align: middle;
+}

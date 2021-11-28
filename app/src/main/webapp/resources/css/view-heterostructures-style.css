@@ -1,0 +1,171 @@
+{
+    font-family: Arial
+;
+}
+
+.section-header {
+    padding-bottom: 1em;
+    color: #021859;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial;
+    text-transform: uppercase;
+}
+
+.sect {
+    border-width: 0px;
+    border-color: yellow;
+    border-style: solid;
+    display: inline;
+}
+
+.sect1 {
+    border-width: 0px;
+    border-color: #4040A0;
+    border-style: solid;
+}
+
+.recently-viewed p {
+    padding-top: 1em;
+}
+
+.main-frame {
+    float: left;
+    border-width: 0px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.main-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /*width: 1000%;*/
+    border-width: 0px;
+    border-color: yellow;
+    border-style: solid;
+
+}
+
+.end-div {
+    clear: both;
+    border-width: 0px;
+    border-color: black;
+    border-style: solid;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: row;
+
+    float: left;
+    padding: 10px 10px 10px 70px;
+}
+
+#new-heterostructure {
+    float: left;
+    padding: 10px 10px 10px 70px;
+}
+
+.viewed-button {
+
+    margin: 5px;
+    color: #000;
+    font-weight: bold;
+    user-select: none; /* Убираем текстовое выделение */
+    text-decoration: none; /* Убираем подчеркивание */
+    background-color: rgb(206, 220, 231); /* Цвет фона */
+    padding: 0.5em; /* Отступ от текста до рамки */
+    border-width: 0px;
+    border-color: #021859;
+    border-style: solid;
+    border-radius: 1px;
+}
+
+a.viewed-button:hover {
+    color: #fff;
+    background-color: #021859; /* Цвет кнопки при наведении курсора */
+}
+
+.heterostructure-name {
+    text-align: center;
+    width: 5em;
+    float: left;
+    font-size: 14px;
+    padding: 0.5em;
+}
+
+
+.svg-structure {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0.5em;
+    width: auto;
+    background-color: white;
+    border-width: 1px;
+    border-color: #aaaaaa;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.options-on-top {
+    margin: 0.5em;
+    padding: 0.3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-width: 1px;
+    border-color: #021859;
+    border-style: solid;
+    border-radius: 1px;
+    background-color: #CCCCCC;
+}
+
+.show-conditions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main-window {
+    padding: 0.5em;
+    background-color: #eeeeee;
+    display: flex;
+    border-width: 0px;
+    border-color: #800000;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.text-info {
+    padding: 0.5em;
+    width: 400px;
+    background-color: white;
+    border-width: 1px;
+    border-color: #aaaaaa;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.comments {
+    white-space: pre-wrap;
+}
+
+.text-info .head-info {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.text-info p {
+    padding: 0.5em;
+}
+
+#type-selector {
+    align-self: flex-start;
+}

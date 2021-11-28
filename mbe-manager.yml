@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+  app:
+    image: mbe-manager
+    container_name: mbe-manager
+    build:
+      context: ./app/
+      dockerfile: Dockerfile
+    environment:
+      - MBE_DB_DRIVER=org.postgresql.Driver
+      - MBE_DB_URL=jdbc:postgresql://${DOCKER_IP}:${PG_PORT}/postgres
+      - MBE_DB_USERNAME=${PG_USERNAME}
+      - MBE_DB_PW=${PG_PASSWORD}
+      - MBE_CACHE_FOLDER=/JavaProjects/design_cache
+    ports:
+      - 8082:8082
+    depends_on:
+      - db 
+  db:
+    image: postgres:9.5-alpine
+    container_name: mbe-db
+    environment:
+      - POSTGRES_USER=${PG_USERNAME}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+    volumes:
+      - dbMBE:/var/lib/postgresql/data
+    ports:
+    - ${PG_PORT}:5432
+volumes:
+  dbMBE:

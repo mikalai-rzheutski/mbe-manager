@@ -1,0 +1,1 @@
+docker-compose -f mbe-manager-with-monitoring.yml up --build

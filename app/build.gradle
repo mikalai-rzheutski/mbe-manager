@@ -1,0 +1,131 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.uberfoo.gradle:gradle-aspectj:2.2"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.0.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+}
+
+apply plugin: 'aspectj'
+apply plugin: 'war'
+
+repositories {
+    /*mavenCentral()*/
+    maven { url "https://repo.maven.apache.org/maven2" }
+}
+
+bootJar {
+    mainClassName = 'by.ifanbel.App'
+}
+
+
+group = 'by.ifanbel.mbe'
+version = '2.0'
+
+sourceCompatibility = 8
+targetCompatibility = 8
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+task stage(type: Copy, dependsOn: [clean, build]) {
+    from jar.archivePath
+    into project.rootDir
+    rename {
+        'app.jar'
+    }
+}
+stage.mustRunAfter(clean)
+
+clean << {
+    project.file('app.jar').delete()
+}
+
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-dependencies:2.0.1.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    compile group: 'io.micrometer', name: 'micrometer-core'
+    implementation group: 'io.micrometer', name: 'micrometer-registry-prometheus'
+
+    implementation'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE'
+    implementation group: 'org.springframework.security', name: 'spring-security-oauth2-client'
+    implementation group: 'org.springframework.security', name: 'spring-security-oauth2-jose'
+
+    providedRuntime group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
+
+    implementation 'commons-fileupload:commons-fileupload:1.4'
+
+
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    implementation group: 'javax.servlet', name: 'jstl'
+    implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version:'5.2.0.RELEASE'
+
+    implementation group: 'org.springframework', name: 'spring-aspects', version: '5.2.6.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-instrument', version:'5.2.6.RELEASE'
+
+    aspectpath "org.springframework:spring-aspects:5.2.6.RELEASE"
+
+    implementation group: 'org.aspectj', name: 'aspectjrt', version:'1.9.4'
+    implementation group: 'org.aspectj', name: 'aspectjweaver', version:'1.9.4'
+    implementation group: 'org.aspectj', name: 'aspectjtools', version:'1.9.4'
+
+    implementation group: 'org.glassfish', name: 'javax.faces', version:'2.4.0'
+    implementation group: 'org.apache.tiles', name: 'tiles-api', version:'3.0.7'
+    implementation group: 'org.apache.tiles', name: 'tiles-core', version:'3.0.7'
+    implementation group: 'org.apache.tiles', name: 'tiles-servlet', version:'3.0.7'
+    implementation group: 'org.apache.tiles', name: 'tiles-jsp', version:'3.0.7'
+    implementation group: 'javax.validation', name: 'validation-api', version:'2.0.1.Final'
+    implementation group: 'org.hibernate', name: 'hibernate-validator', version:'6.0.10.Final'
+    implementation group: 'org.postgresql', name: 'postgresql', version:'9.4.1212.jre7'
+
+    implementation group: 'org.jfree', name: 'jfreesvg', version:'3.3'
+    implementation group: 'org.freehep', name: 'freehep-graphics2d', version:'2.3'
+    implementation group: 'org.freehep', name: 'freehep-graphicsio', version:'2.4'
+    implementation group: 'org.freehep', name: 'freehep-graphicsio-svg', version:'2.4'
+    implementation group: 'org.freehep', name: 'freehep-graphicsio-emf', version:'2.4'
+    implementation group: 'org.freehep', name: 'freehep-graphicsio-pdf', version:'2.4'
+    implementation group: 'org.freehep', name: 'freehep-graphicsbase', version:'2.4'
+    implementation group: 'org.freehep', name: 'freehep-graphicsio-ps', version:'2.4'
+    implementation group: 'org.freehep', name: 'freehep-graphicsio-swf', version:'2.4'
+    implementation group: 'org.apache.xmlgraphics', name: 'batik-codec', version: '1.10'
+    implementation group: 'org.apache.xmlgraphics', name: 'batik-transcoder', version: '1.10'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
+    implementation group: 'org.apache.poi', name: 'ooxml-schemas', version: '1.4'
+    
+    testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+    testImplementation group: 'org.springframework', name: 'spring-test', version: '4.3.2.RELEASE'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.2'
+
+}
+
+test {
+    useTestNG()
+}
+
