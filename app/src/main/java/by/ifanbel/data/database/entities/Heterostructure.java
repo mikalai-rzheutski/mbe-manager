@@ -8,6 +8,8 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -100,8 +102,10 @@ public class Heterostructure {
 					Material.NitrogenType.getNitrogenTypeByString(nitrogenType), Material.Dopant.getDopantByString(dopant));
 			Material stopMaterial = new Material(getStopValue(x), getStopValue(y), getStopValue(temperature), getStopValue(heat), getStopValue(nitrogenFlow),
 					Material.NitrogenType.getNitrogenTypeByString(nitrogenType), Material.Dopant.getDopantByString(dopant));
-			layers.add(i, new Layer(this, i, startMaterial, stopMaterial, thickness, layerComment));
+			layers.add(new Layer(this, jspBeanHeterostructure.getLayerId().get(i), startMaterial, stopMaterial,
+                                    thickness, layerComment));
 		}
+		Collections.sort(layers, Comparator.comparingInt(Layer::getLayerNumber));
 	}
 
 	private float getStartValue(String s) {

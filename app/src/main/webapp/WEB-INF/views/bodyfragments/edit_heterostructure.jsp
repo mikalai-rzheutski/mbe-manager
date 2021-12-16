@@ -119,7 +119,8 @@
                         </select>
                     </td>
                     <td>
-                        <input class="form-control form-control-sm text-center p-0 m-0" type="number" name="thickness" autocomplete="off"
+                        <input class="form-control form-control-sm text-center p-0 m-0" type="number"
+                               name="thickness" step="0.01" autocomplete="off"
                                               value="${jspBeanHeterostructure.thickness[loop.index]}" size="7"/>
                     </td>
                     <td>
